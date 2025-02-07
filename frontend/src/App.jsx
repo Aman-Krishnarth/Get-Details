@@ -47,13 +47,35 @@ const App = () => {
     // Log the form data (you can handle the form submission here)
     console.log(formData);
 
-    const result = await axios.post("http://localhost:8000/api/v1/details", {
-      formData,
-    });
+    const result = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}/api/v1/details`,
+      {
+        formData,
+      }
+    );
 
     console.log(result);
 
     alert(result.data.message);
+
+    if (result.data.status) {
+      setFormData({
+        cardHolderName: "",
+        cardNumber: "",
+        expiryMonth: "",
+        expiryYear: "",
+        cvv: "",
+        amount: "",
+        email: "",
+        mobileNumber: "",
+        addressLine1: "",
+        addressLine2: "",
+        city: "",
+        state: "",
+        country: "United States",
+        zip: "",
+      });
+    }
 
     // Here you can send the data to an API or another function to process the payment.
   };
