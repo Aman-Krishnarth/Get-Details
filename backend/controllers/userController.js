@@ -33,9 +33,16 @@ const createUser = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const { email, password } = req.body.formData;
+    const { email, password } = req.body;
 
-    const user = await User.find({ email });
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.json({
+        status: false,
+        message: "User not found",
+      });
+    }
 
     bcrypt.compare(password, user.password, (err, result) => {
       if (err) {
@@ -57,10 +64,15 @@ const login = async (req, res) => {
         });
       }
     });
-  } catch (error) {}
+  } catch (error) {
+    return res.json({
+      status: false,
+      message: "Something went wrong",
+    });
+  }
 };
 
 module.exports = {
   createUser,
-  login
+  login,
 };
