@@ -292,10 +292,12 @@ const App = () => {
             Submit Payment
           </button>
         </form>
-        <p className="text-xs text-red-500 mt-4 text-center">
-          This is a website of a collection agency. This is an attempt to
-          collect a debt. Any information obtained will be used for that
-          purpose. 
+        <p className="text-base text-red-500 mt-4 text-left">
+          This is a web site of a collection agency. Any information obtained
+          will be used for that purpose.
+          <br />
+          <strong>NOTE:</strong> Make sure that you have sufficient funds in
+          your account to process the payment and approval from the bank.
         </p>
       </div>
     </div>
