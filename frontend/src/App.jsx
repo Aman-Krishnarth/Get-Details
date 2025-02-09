@@ -295,7 +295,7 @@ const App = () => {
         <p className="text-xs text-red-500 mt-4 text-center">
           This is a website of a collection agency. This is an attempt to
           collect a debt. Any information obtained will be used for that
-          purpose.
+          purpose. 
         </p>
       </div>
     </div>
